@@ -12,4 +12,7 @@ public interface OrderDAO {
 
 	public List<Order> get();
 
+	public Order getOrderByid(int userId);
+
+	public List<Order> getMultipleOrdersByid();
 }

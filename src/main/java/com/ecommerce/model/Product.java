@@ -1,15 +1,14 @@
 package com.ecommerce.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.Table;
 
-import net.bytebuddy.implementation.ToStringMethod;
+//import net.bytebuddy.implementation.ToStringMethod;
 
 @Entity
 @Table
@@ -32,6 +31,7 @@ public class Product {
 	@Column
 	private String seller;
 	
+
 	
 	public int getId() {
 		return id;

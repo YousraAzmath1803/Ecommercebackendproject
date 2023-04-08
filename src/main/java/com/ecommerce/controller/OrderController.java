@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,5 +45,17 @@ public class OrderController {
 		  
 		  return new ResponseEntity<List<Order>>(result, HttpStatus.OK);
 	 }
-	
+	@PostMapping("/orderById/{id}")
+	public ResponseEntity<Order> getOrderbyId(@PathVariable("id") int id){
+		    System.out.println("userid"+ id);
+		Order result = orderService.getOrderByid(id);
+		 return new ResponseEntity<Order>(result, HttpStatus.OK);
+	}
+	@PostMapping("/orderlist")
+	 public ResponseEntity<List<Order>> getMultipleOrdersByid() {
+		
+		  List<Order> result =  orderService.getMultipleOrdersByid();
+		  
+		  return new ResponseEntity<List<Order>>(result, HttpStatus.OK);
+	 }
 }

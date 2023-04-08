@@ -11,5 +11,10 @@ public interface OrderService {
 	public	Response placeOrder(Order order);
 
 	public List<Order> get();
+	
+	public Order getOrderByid(int userId);
 
+	
+
+	public List<Order> getMultipleOrdersByid();
 }

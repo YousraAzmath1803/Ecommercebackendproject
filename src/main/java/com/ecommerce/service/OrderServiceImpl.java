@@ -25,7 +25,18 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<Order> get() {
 		// TODO Auto-generated method stub
+		
 		return  orderDAO.get();
+	}
+	@Override
+	public Order getOrderByid(int userid) {
+		// TODO Auto-generated method stub
+		return orderDAO.getOrderByid(userid);
+	}
+	@Override
+	public List<Order> getMultipleOrdersByid() {
+		// TODO Auto-generated method stub
+		return orderDAO.getMultipleOrdersByid();
 	}
 
 }

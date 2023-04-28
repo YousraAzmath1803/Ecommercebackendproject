@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,13 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecommerce.model.Product;
 import com.ecommerce.service.ProductService;
 import com.ecommerce.util.Response;
-
+@CrossOrigin
 @RequestMapping("/product")
 @RestController
 public class ProductController {
 	@Autowired
 	ProductService productService;
-	
+	@CrossOrigin
 	@PostMapping("/add")
 	public ResponseEntity<Response> addProduct(@RequestBody Product product) {
 		System.out.println(product);
@@ -36,6 +37,7 @@ public class ProductController {
 		}
 		
 }
+	@CrossOrigin
 	@PutMapping("/update")
 	 public ResponseEntity<Response> update(@RequestBody Product product) {
 		
@@ -48,6 +50,7 @@ public class ProductController {
 					return new ResponseEntity<Response>(response,HttpStatus.BAD_REQUEST);
 				}
 	 }
+	@CrossOrigin
 	@DeleteMapping("/delete")
 	public  ResponseEntity<Response> delete(@RequestBody Product product) {
 		System.out.println("controller");
@@ -60,6 +63,7 @@ public class ProductController {
 				return new ResponseEntity<Response>(response,HttpStatus.BAD_REQUEST);
 			}
 	}
+	@CrossOrigin
 	@GetMapping("/getById")
 	 public ResponseEntity<Product> productById(@RequestBody Product product) {
 		
@@ -67,6 +71,7 @@ public class ProductController {
 		  
 		  return new ResponseEntity<Product>(result, HttpStatus.OK);
 	 }
+	@CrossOrigin
 	@GetMapping("/list")
 	 public ResponseEntity<List<Product>> getAllProducts() {
 		

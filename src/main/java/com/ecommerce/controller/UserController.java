@@ -38,7 +38,7 @@ public class UserController {
 	
 		
 	}
-
+	@CrossOrigin
 	@PostMapping("/login")
 	public ResponseEntity<Response> login(@RequestBody User user) {
 		//System.out.println("username :"+user.getUsername());
@@ -53,6 +53,7 @@ public class UserController {
 		}
 	
 	}
+	@CrossOrigin
 	@PutMapping("/update")
 	public ResponseEntity<Response> update(@RequestBody User user){
 		Response response=userService.update(user);
@@ -65,6 +66,7 @@ public class UserController {
 		}
 		
 	}
+	@CrossOrigin
 	@PostMapping("/getByemail")
 	 public ResponseEntity<Response> forgotPassword(@RequestBody User user) {
 		

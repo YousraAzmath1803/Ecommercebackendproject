@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,7 @@ public class OrderController {
 
 	@Autowired
 	OrderService orderService;
-	
+	@CrossOrigin
 	@PostMapping("/add")
 	public ResponseEntity<Response> placeOrder(@RequestBody Order order){
 		System.out.println(order);
@@ -38,6 +39,7 @@ public class OrderController {
 		
 		
 	}
+	@CrossOrigin
 	@GetMapping("/list")
 	 public ResponseEntity<List<Order>> getAllOrders() {
 		
@@ -45,12 +47,14 @@ public class OrderController {
 		  
 		  return new ResponseEntity<List<Order>>(result, HttpStatus.OK);
 	 }
+	@CrossOrigin
 	@PostMapping("/orderById/{id}")
 	public ResponseEntity<Order> getOrderbyId(@PathVariable("id") int id){
 		    System.out.println("userid"+ id);
 		Order result = orderService.getOrderByid(id);
 		 return new ResponseEntity<Order>(result, HttpStatus.OK);
 	}
+	@CrossOrigin
 	@PostMapping("/orderlist")
 	 public ResponseEntity<List<Order>> getMultipleOrdersByid() {
 		
